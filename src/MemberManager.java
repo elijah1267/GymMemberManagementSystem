@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 import member.CrossfitMember;
 import member.GymMember;
+import member.MemberKind;
+import member.YogaMember;
 
 public class MemberManager {
 	
@@ -17,16 +19,23 @@ public class MemberManager {
 		while(kind != 1 && kind != 2 ) {
 			System.out.println("1. Fitness");
 			System.out.println("2. Crossfit");
+			System.out.println("3. Yoga");
 			System.out.print("Select num for Member Kind : ");
 			kind = input.nextInt();
 			if (kind == 1) {
-				gymMember = new GymMember();
+				gymMember = new GymMember(MemberKind.Fitness);
 				gymMember.getUserInput(input);
 				gymMembers.add(gymMember);
 				break;
 			}
 			else if (kind == 2) {
-				gymMember = new CrossfitMember();
+				gymMember = new CrossfitMember(MemberKind.Crossfit);
+				gymMember.getUserInput(input);	
+				gymMembers.add(gymMember);
+				break;
+			}
+			else if (kind == 3) {
+				gymMember = new YogaMember(MemberKind.Yoga);
 				gymMember.getUserInput(input);	
 				gymMembers.add(gymMember);
 				break;

@@ -3,6 +3,10 @@ package member;
 import java.util.Scanner;
 
 public class CrossfitMember extends GymMember {
+	
+	public CrossfitMember(MemberKind kind) {
+		super(kind);
+	}
 	public void getUserInput(Scanner input) {
 		System.out.print("Member Id : ");
 		int id = input.nextInt();

@@ -12,12 +12,24 @@ public class GymMember {
 	public GymMember() {
 	}
 	
+	public GymMember(MemberKind kind) {
+		this.kind = kind;
+	}
+	
 	public GymMember(String name, int id) {
 		this.name = name;
 		this.id = id;
 	}
 	
 	public GymMember(String name, int id, String phone, String address) {
+		this.name = name;
+		this.id = id;
+		this.phone = phone;
+		this.address = address;
+	}
+	
+	public GymMember(MemberKind kind, String name, int id, String phone, String address) {
+		this.kind = kind;
 		this.name = name;
 		this.id = id;
 		this.phone = phone;
@@ -66,7 +78,23 @@ public class GymMember {
 	
 	
 	public void printInfo() {
-			System.out.println("Id:"+id+" Name:"+name+" Phone number:"+phone+" Address:"+address);
+		String skind = "none";
+		switch(this.kind) {
+		case Fitness:
+			skind = "Fit.";
+			break;
+		case Crossfit:
+			skind = "Cross.";
+			break;
+		case Yoga:
+			skind = "Yoga.";
+			break;
+		case Pilates:
+			skind = "Pil.";
+			break;
+		default :
+		}
+			System.out.println("Kind:"+skind+" Id:"+id+" Name:"+name+" Phone number:"+phone+" Address:"+address);
 	}
 	
 	public void getUserInput(Scanner input) {
