@@ -2,7 +2,7 @@ package member;
 
 import java.util.Scanner;
 
-public class YogaMember extends GymMember {
+public class YogaMember extends GymMember implements MemberInput {
 	
 	public YogaMember(MemberKind kind) {
 		super(kind);

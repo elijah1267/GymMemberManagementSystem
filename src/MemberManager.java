@@ -3,19 +3,21 @@ import java.util.Scanner;
 
 import member.CrossfitMember;
 import member.GymMember;
+import member.MemberInput;
 import member.MemberKind;
+import member.PilatesMember;
 import member.YogaMember;
 
 public class MemberManager {
 	
-	ArrayList<GymMember> gymMembers = new ArrayList<GymMember>();
+	ArrayList<MemberInput> gymMembers = new ArrayList<MemberInput>();
 	Scanner input;
 	MemberManager(Scanner input){
 		this.input = input;
 	}
 	public void addMember() {
 		int kind = 0;
-		GymMember gymMember;
+		MemberInput memberInput;
 		while(kind != 1 && kind != 2 ) {
 			System.out.println("1. Fitness");
 			System.out.println("2. Crossfit");
@@ -23,21 +25,21 @@ public class MemberManager {
 			System.out.print("Select num for Member Kind : ");
 			kind = input.nextInt();
 			if (kind == 1) {
-				gymMember = new GymMember(MemberKind.Fitness);
-				gymMember.getUserInput(input);
-				gymMembers.add(gymMember);
+				memberInput = new PilatesMember(MemberKind.Fitness);
+				memberInput.getUserInput(input);
+				gymMembers.add(memberInput);
 				break;
 			}
 			else if (kind == 2) {
-				gymMember = new CrossfitMember(MemberKind.Crossfit);
-				gymMember.getUserInput(input);	
-				gymMembers.add(gymMember);
+				memberInput = new CrossfitMember(MemberKind.Crossfit);
+				memberInput.getUserInput(input);	
+				gymMembers.add(memberInput);
 				break;
 			}
 			else if (kind == 3) {
-				gymMember = new YogaMember(MemberKind.Yoga);
-				gymMember.getUserInput(input);	
-				gymMembers.add(gymMember);
+				memberInput = new YogaMember(MemberKind.Yoga);
+				memberInput.getUserInput(input);	
+				gymMembers.add(memberInput);
 				break;
 			}
 			else {
@@ -72,8 +74,8 @@ public class MemberManager {
 		System.out.print("Member Id : ");
 		int Id = input.nextInt();
 		for (int i=0; i<gymMembers.size(); i++) {
-			GymMember gymMember = gymMembers.get(i);
-			if (gymMember.getId() == Id) {
+			MemberInput memberInput = gymMembers.get(i);
+			if (memberInput.getId() == Id) {
 				int num = -1;
 				while (num != 5) {
 					System.out.println("1. Edit Id");
@@ -87,22 +89,22 @@ public class MemberManager {
 					case 1:
 						System.out.print("Member Id : ");
 						int id = input.nextInt();
-						gymMember.setId(id);
+						memberInput.setId(id);
 						break;
 					case 2:
 						System.out.print("Name : ");
 						String name = input.next();
-						gymMember.setName(name);
+						memberInput.setName(name);
 						break;
 					case 3:
 						System.out.print("Address : ");
 						String address = input.next();
-						gymMember.setAddress(address);
+						memberInput.setAddress(address);
 						break;
 					case 4:
 						System.out.print("Phone number : ");
 						String phone = input.next();
-						gymMember.setPhone(phone);
+						memberInput.setPhone(phone);
 						break;
 					}
 				}
@@ -113,8 +115,7 @@ public class MemberManager {
 	}
 	
 	public void viewMembers() {
-//		System.out.print("Member Id : ");
-//		int Id = input.nextInt();
+
 		System.out.println("# of registered members:"+gymMembers.size()); 
 		for (int i=0; i<gymMembers.size(); i++) {
 			gymMembers.get(i).printInfo();

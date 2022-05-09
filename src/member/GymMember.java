@@ -1,8 +1,8 @@
-package member;
+ package member;
 
 import java.util.Scanner;
 
-public class GymMember {
+public abstract class GymMember {
 	protected MemberKind kind= MemberKind.Fitness;
 	protected String name;
 	protected int id;
@@ -77,42 +77,8 @@ public class GymMember {
 	}
 	
 	
-	public void printInfo() {
-		String skind = "none";
-		switch(this.kind) {
-		case Fitness:
-			skind = "Fit.";
-			break;
-		case Crossfit:
-			skind = "Cross.";
-			break;
-		case Yoga:
-			skind = "Yoga.";
-			break;
-		case Pilates:
-			skind = "Pil.";
-			break;
-		default :
-		}
-			System.out.println("Kind:"+skind+" Id:"+id+" Name:"+name+" Phone number:"+phone+" Address:"+address);
-	}
+	public abstract void printInfo() ;
 	
-	public void getUserInput(Scanner input) {
-		System.out.print("Member Id : ");
-		int id = input.nextInt();
-		this.setId(id);
-		
-		System.out.print("Name : ");
-		String name = input.next();
-		this.setName(name);
-		
-		System.out.print("Phone number : ");
-		String phone = input.next(); 
-		this.setPhone(phone);
-		
-		System.out.print("Address : ");
-		String address = input.next();
-		this.setAddress(address);
-	}
+	
 
 }
