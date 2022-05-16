@@ -2,7 +2,9 @@
 
 import java.util.Scanner;
 
-public abstract class GymMember {
+import exception.AddressFormatException;
+
+public abstract class GymMember implements MemberInput {
 	protected MemberKind kind= MemberKind.Fitness;
 	protected String name;
 	protected int id;
@@ -72,13 +74,66 @@ public abstract class GymMember {
 		return address;
 	}
 
-	public void setAddress(String address) {
+	public void setAddress(String address) throws AddressFormatException{
+		if (!address.contains("½Ã") && !address.equals("")) {
+			throw new AddressFormatException();
+		}
 		this.address = address;
 	}
 	
 	
 	public abstract void printInfo() ;
 	
+	public void setMemberId(Scanner input) {
+		System.out.print("Member Id : ");
+		int id = input.nextInt();
+		this.setId(id);
+	}
+	
+	public void setMemberName(Scanner input) {
+		System.out.print("Name : ");
+		String name = input.next();
+		this.setName(name);
+	}
+	
+	public void setMemberAddress(Scanner input) {
+		String address = "";
+		while(!address.contains("½Ã")) {
+			System.out.print("Address : ");
+			address = input.next();
+			try {
+				this.setAddress(address);
+			}catch(AddressFormatException e) {
+				System.out.println("Incorrect Address Format. Put the address that contains ½Ã");
+			}
+		}
+	}
+	
+	public void setMemberPhone(Scanner input) {
+		System.out.print("Phone number : ");
+		String phone = input.next();
+		this.setPhone(phone);
+	}
+	
+	public String getKindString() {
+		String skind = "none";
+		switch(this.kind) {
+		case Fitness:
+			skind = "Fit.";
+			break;
+		case Crossfit:
+			skind = "Cross.";
+			break;
+		case Yoga:
+			skind = "Yoga.";
+			break;
+		case Pilates:
+			skind = "Pil.";
+			break;
+		default :
+		}
+		return skind;
+	}
 	
 
 }

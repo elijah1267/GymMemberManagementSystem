@@ -2,6 +2,8 @@ package member;
 
 import java.util.Scanner;
 
+import exception.AddressFormatException;
+
 public interface MemberInput {
 
 	
@@ -13,11 +15,18 @@ public interface MemberInput {
 
 	public void setName(String name);
 
-	public void setAddress(String address);
+	public void setAddress(String address) throws AddressFormatException;
 
 	public void setPhone(String phone);
 
 	public void printInfo();
 	
+	public void setMemberId(Scanner input);
+	
+	public void setMemberName(Scanner input);
+	
+	public void setMemberAddress(Scanner input);
+	
+	public void setMemberPhone(Scanner input);
 
 }
