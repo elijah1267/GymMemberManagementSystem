@@ -2,8 +2,11 @@ package member;
 
 import java.util.Scanner;
 
-public class CrossfitMember extends CYMember {
-	
+public class CrossfitMember extends CYMember {	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public CrossfitMember(MemberKind kind) {
 		super(kind);
 	}
@@ -13,9 +16,4 @@ public class CrossfitMember extends CYMember {
 		setMemberPhonewithYN(input);
 		setMemberAddress(input);
 	}
-	
-
-	
-
-
 }

@@ -1,10 +1,15 @@
  package member;
 
+import java.io.Serializable;
 import java.util.Scanner;
-
 import exception.AddressFormatException;
 
-public abstract class GymMember implements MemberInput {
+public abstract class GymMember implements MemberInput, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3209352399714510577L;
+	
 	protected MemberKind kind= MemberKind.Fitness;
 	protected String name;
 	protected int id;
@@ -134,6 +139,4 @@ public abstract class GymMember implements MemberInput {
 		}
 		return skind;
 	}
-	
-
 }

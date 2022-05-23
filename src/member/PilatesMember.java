@@ -4,6 +4,11 @@ import java.util.Scanner;
 
 public class PilatesMember extends GymMember {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public PilatesMember(MemberKind kind) {
 		super(kind);
 	}

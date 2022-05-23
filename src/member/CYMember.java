@@ -4,6 +4,11 @@ import java.util.Scanner;
 
 public abstract class CYMember extends GymMember {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public CYMember(MemberKind kind) {
 		super(kind);
 	}

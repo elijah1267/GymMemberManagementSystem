@@ -1,11 +1,14 @@
  package member;
 
 import java.util.Scanner;
-
 import exception.AddressFormatException;
 
 public class YogaMember extends CYMember {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected String email;
 	
 	public YogaMember(MemberKind kind) {

@@ -1,7 +1,6 @@
 package member;
 
 import java.util.Scanner;
-
 import exception.AddressFormatException;
 
 public interface MemberInput {
