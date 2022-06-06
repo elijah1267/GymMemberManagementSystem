@@ -1,3 +1,4 @@
+package Manager;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -6,6 +7,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import gui.WindowFrame;
 import log.EventLogger;
 
 public class MenuManager {
@@ -19,7 +22,11 @@ public class MenuManager {
 		if (memberManager == null) {
 			memberManager = new MemberManager(input); 
 		}
+		else {
+			memberManager.setScanner(input);
+		}
 		
+		WindowFrame frame = new WindowFrame(memberManager);
 		selectMenu(input, memberManager);
 		putObject(memberManager, "membermanager.ser");
 	}

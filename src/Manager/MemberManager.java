@@ -1,8 +1,10 @@
+package Manager;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import member.CrossfitMember;
+import member.GymMember;
 import member.MemberInput;
 import member.MemberKind;
 import member.PilatesMember;
@@ -19,6 +21,11 @@ public class MemberManager implements Serializable {
 	MemberManager(Scanner input){
 		this.input = input;
 	}
+	
+	public void setScanner(Scanner input) {
+		this.input = input;
+	}
+	
 	public void addMember() {
 			int kind = 0;
 			MemberInput memberInput;
@@ -131,6 +138,13 @@ public class MemberManager implements Serializable {
 		}
 	}
 	
+	public int size() {
+		return gymMembers.size(); 
+	}
+	
+	public MemberInput get(int index) {
+		return (GymMember) gymMembers.get(index);
+	}
 	
 	public void showEditMenu() {
 		System.out.println("1. Edit Id");

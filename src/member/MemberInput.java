@@ -11,10 +11,16 @@ public interface MemberInput {
 	public int getId();
 
 	public void setId(int id);
+	
+	public String getName();
 
 	public void setName(String name);
+	
+	public String getAddress();
 
 	public void setAddress(String address) throws AddressFormatException;
+	
+	public String getPhone();
 
 	public void setPhone(String phone);
 
