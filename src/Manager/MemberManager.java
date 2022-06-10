@@ -26,6 +26,16 @@ public class MemberManager implements Serializable {
 		this.input = input;
 	}
 	
+	public void addMember(String id, String name, String address, String phone) {
+		MemberInput memberInput = new PilatesMember(MemberKind.Fitness);
+		memberInput.getUserInput(input);
+		gymMembers.add(memberInput);
+	}
+	
+	public void addMember(MemberInput memberInput) {
+		gymMembers.add(memberInput);
+	}
+	
 	public void addMember() {
 			int kind = 0;
 			MemberInput memberInput;

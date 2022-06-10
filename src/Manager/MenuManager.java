@@ -80,8 +80,6 @@ public class MenuManager {
 	
 	public static MemberManager getObject(String filename) {
 		MemberManager memberManager = null;
-		
-		
 		try {
 			FileInputStream file = new FileInputStream(filename);
 			ObjectInputStream in = new ObjectInputStream(file);
@@ -90,7 +88,6 @@ public class MenuManager {
 			
 			in.close();
 			file.close();
-			
 		} catch (FileNotFoundException e) {
 			return memberManager;
 		} catch (IOException e) {
@@ -98,9 +95,7 @@ public class MenuManager {
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		
 		return memberManager;
-
 	}
 	
 	public static void putObject(MemberManager memberManager, String filename) {

@@ -2,7 +2,6 @@ package gui;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-
 import Manager.MemberManager;
 
 public class WindowFrame extends JFrame {
@@ -19,7 +18,7 @@ public class WindowFrame extends JFrame {
 		
 		this.memberManager = memberManager;
 		this.menuselection = new MenuSelection(this);
-		this.memberadder = new MemberAdder(this);
+		this.memberadder = new MemberAdder(this, this.memberManager);
 		this.memberviewer = new MemberViewer(this, this.memberManager);
 
 		

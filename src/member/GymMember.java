@@ -1,4 +1,4 @@
- package member;
+package member;
 
 import java.io.Serializable;
 import java.util.Scanner;
